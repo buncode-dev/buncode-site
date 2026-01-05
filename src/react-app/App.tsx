@@ -6,7 +6,6 @@ import butterfilesImage from './assets/proj-butterfiles.webp'
 import musicPlayerImage from './assets/proj-musicplayer.webp'
 import bunnyImage from './assets/bunny.webp'
 import './App.css'
-import { Style } from 'util'
 
 
 interface CardData {
@@ -14,7 +13,7 @@ interface CardData {
   category: string;
   description: string;
   imageUrl: string;
-  pills: string[];
+  // pills: string[];
 }
 
 const cardsData: CardData[] = [
@@ -28,7 +27,6 @@ const cardsData: CardData[] = [
       Besides coding, I also draw digital art, 
       like that drawing of me above. `,
     imageUrl: selfieImage,
-    pills: ["C++", "C#", "Python", "React", "Unity", "Godot"]
   },
   {
     title: "Chun & Snuggles Coop Cook-off",
@@ -38,7 +36,6 @@ const cardsData: CardData[] = [
       out of a backyard coop. The two main chicken characters
       are based on my partner's real-life pet chickens, Chun and Mr. Snuggles!`,
     imageUrl: cookoffImage,
-    pills: ["Godot", "Python", "WebGL"]
   },
   {
     title: "Butterfiles",
@@ -49,7 +46,6 @@ const cardsData: CardData[] = [
     for me, trying to combine my frontend and backend skills
     into one big project people would actually use.`,
     imageUrl: butterfilesImage,
-    pills: ["React", "Database"]
   },
   {
     title: "Music Player + Clock",
@@ -60,7 +56,6 @@ const cardsData: CardData[] = [
     new territory for me, but it's also been really
     fun designing every aspect like UI and learning about APIs.`,
     imageUrl: musicPlayerImage,
-    pills: ["Raspberry Pi", "Python", "APIs", "HTML/CSS"]
   }
 ]
 
@@ -73,7 +68,7 @@ const cardsData: CardData[] = [
 // }
 
 // ////////// Cards ////////////
-function Card({ category, description, imageUrl, title, pills }: CardData) {
+function Card({ category, description, imageUrl, title }: CardData) {
   return (
     <div className="card hide-scrollbar">
       <p className="card-category">{category}</p>
@@ -147,7 +142,6 @@ function App() {
               description={card.description}
               imageUrl={card.imageUrl}
               title={card.title}
-              pills={card.pills}
             />
           ))}
           <CreditsCard />
