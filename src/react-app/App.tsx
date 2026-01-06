@@ -13,7 +13,6 @@ interface CardData {
   category: string;
   description: string;
   imageUrl: string;
-  // pills: string[];
 }
 
 const cardsData: CardData[] = [
@@ -59,27 +58,23 @@ const cardsData: CardData[] = [
   }
 ]
 
-// function animTypewriter(text: string) {
-//   return {
-//     animation: "typewriter 4s steps(" + text.length + 
-//         ") 1s 1 normal both, blinkTextCursor 500ms steps(" + 
-//         text.length + ") infinite normal"
-//   }
-// }
+
+function randomRotation(): string {
+  const angle = Math.floor(Math.random() * 6) - 3; // Random angle between -3 and 2
+  return `rotate(${angle}deg)`;
+}
 
 // ////////// Cards ////////////
 function Card({ category, description, imageUrl, title }: CardData) {
   return (
-    <div className="card hide-scrollbar">
+    <div className="card hide-scrollbar" style={{ transform: randomRotation() }}>
       <p className="card-category">{category}</p>
       <img src={imageUrl} alt={title} className="card-image" />
 
       <section className="card-content">
         <h2 className="card-title">{title}</h2>
         <p className="card-description">{description}</p>
-        {/* {pills.map((pill, index) => (
-          <p key={index} className="pill">{pill}</p>
-        ))} */}
+
       </section>
     </div>
   )
@@ -103,8 +98,8 @@ function CoverCard() {
         <p>I'm a Comp Sci student studying at UNLV.</p>
         <div className="divider" />
         <a href="https://github.com/buncode-dev"><p className="pill">GitHub</p></a>
-        <p className="pill">Linkedin</p>
-        <p className="pill">Handshake</p>
+        <a href="https://www.linkedin.com/in/april-castaneda-7865043a3"><p className="pill">Linkedin</p></a>
+        <a href="https://unlv.joinhandshake.com/profiles/hehgzt"><p className="pill">Handshake</p></a>
       </div>
     </div>
   )
@@ -119,9 +114,9 @@ function CreditsCard() {
         <h2 className="card-title">Credits</h2>
         <p>Website by me</p>
         <p>Art and design by me</p>
-        <p>Background image by Daan Stevens on Pexels</p>
+        <p>Background image by Min An on Pexels</p>
+        <button className='back-to-top pill' onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>Back to top</button>
       </div>
-      {/* <p className="pill watermark">buncode.dev</p> */}
     </div>
   )
 }
